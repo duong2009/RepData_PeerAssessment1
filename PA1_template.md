@@ -21,7 +21,9 @@ head(myData)
 
 
 1. What is mean total number of steps taken per day?
+
 a. make histogram of total number of steps taken per day
+
 First I reshape the date using reshape 2 package using date as an id variable and steps as a measure variable
 
 
@@ -106,10 +108,13 @@ sum(is.na(myData$steps))
 
 To deal with NAs, one strategy is to replace all with the mean steps for the 
 respective 5-min interval
+
 The solution here is to use melt function in the reshape2 package to melt the
 data with "date" and "interval" as id variables and ddply function in the plyr
 package to apply the replacing NA function to each group of 5-min interval.
+
 Finally, dcast function will return to the data with the original format.
+
 The final dataset with NA valued filled is shown below:
 
 ```r
@@ -169,8 +174,10 @@ Hence, there is no impact when filling the NA values with the mean of the respec
 
 4. weekdays vs. weekends
 
-Firstly, we create a dataset with new variable containing 2 factors "weekday" and "weekend" by first convert the "date" variable from character to date.
-We then use weekdays() function to find which day the date belongs to.
+Firstly, I create a dataset with new variable containing 2 factors "weekday" and "weekend" by first convert the "date" variable from character to date.
+
+I then use weekdays() function to find which day the date belongs to.
+
 Finally we subset "Saturday" and "Sunday" by "weekend" and the rest by "weekday" to generate a new dataset called "newData
 "
 
